@@ -6,7 +6,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
 
 
-export default function BudgetControl({presupuesto, setPresupuesto, spents, setSpents}) {
+export default function BudgetControl({presupuesto, setPresupuesto, spents, setSpents, setIsValiedPresupuesto}) {
   
   const [available, setAvailable] = useState('');
   const [waste, setWaste] = useState('');
@@ -46,7 +46,16 @@ export default function BudgetControl({presupuesto, setPresupuesto, spents, setS
   }
 
 
-  
+  const resetApp = () =>{
+
+    const answer  = confirm('¿Deseas Resetear la app?');
+
+    if(answer){
+      setPresupuesto(0);
+      setSpents([]);
+      setIsValiedPresupuesto(false);
+    }
+  }
   
   return (
     <div className="contain-budget sombra contain two-columns">
@@ -65,6 +74,10 @@ export default function BudgetControl({presupuesto, setPresupuesto, spents, setS
       </div>
 
       <div className="contain-information">
+        <button type="button" className="reset-app" onClick={resetApp}>
+          Resetear App
+        </button>
+
         <p> <span>Presupuesto: </span> {formatQuantity(presupuesto)} </p>
         <p> <span>Gastado: </span>{formatQuantity(waste)}</p>
         <p> <span>Dsiponible: </span>{formatQuantity(available)}</p>

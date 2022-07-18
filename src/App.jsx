@@ -4,6 +4,8 @@ import ListBudget from './components/ListBudget';
 import Modal from './components/Modal';
 import IconAdd from './img/mas.png';
 import { CreateId } from './Helpers';
+import Filtro from './components/Filtro';
+
 
 function App() {
   
@@ -13,7 +15,8 @@ function App() {
   const [animatedModal, setAnimatedModal] = useState(false);
   const [spents, setSpents] = useState(JSON.parse(localStorage.getItem('spents')) ?? []);
   const [editSpent, setEditSpent] = useState({});
-
+  const [filtro, setFiltro] = useState('');
+  const [actualizarFiltro, setActualizarFiltro] = useState([]);
 
 
   //Comprabmos que hay una edicion con un UseEffect
@@ -50,6 +53,16 @@ function App() {
   useEffect(()=>{
     localStorage.setItem('spents', JSON.stringify(spents) ?? []);
   }, [spents]);
+
+  useEffect(()=>{
+    if(filtro){
+
+      const filtroActualizar = spents.filter(spent => spent.category === filtro );
+      setActualizarFiltro(filtroActualizar);
+    }
+
+  }, [filtro]);
+
 
 
 
@@ -101,6 +114,13 @@ function App() {
 
   return (
     <div className={modal ? 'fixed' : ''}>
+      
+      {isValiedPresupuesto && <Filtro
+                              filtro={filtro}
+                              setFiltro={setFiltro}
+      />
+      }
+      
       <Header
         presupuesto={presupuesto}
         spents={spents}
@@ -119,6 +139,8 @@ function App() {
               setSpents={setSpents}
               setEditSpent={setEditSpent}
               deleteSpent={deleteSpent}
+              actualizarFiltro={actualizarFiltro}
+              filtro={filtro}
             />
           </main>
 

@@ -113,6 +113,9 @@ header{
   background-color: var(--oscuro);
   color: white;
 }
+.formulario select{
+  font-weight: bold;
+}
 
 @media (min-width: 768px){
   .formulario legend{
@@ -191,11 +194,13 @@ header{
 }
 
 .modal .title-modal{
-  margin: 6rem auto;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
   font-size: 3rem;
   font-weight: bold;
   color: white;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .form-modal{
@@ -204,6 +209,7 @@ header{
 .form-modal .campo input{
   margin-top: 1rem;
   text-align: start;
+  color: rgb(48, 45, 45);
 }
 .form-modal .campo{
   margin-bottom: 1rem;
@@ -216,6 +222,7 @@ header{
   width: 100%;
   padding: 1rem 0;
   font-size: 1.5rem;
+  color: rgb(48, 45, 45);
 }
 
 .close-modal{
@@ -392,4 +399,35 @@ header{
 
 .swipeable-list .swipe-action{
   font-size: 4rem;
+}
+
+
+.searching legend{
+  font-size: 3rem;
+  color: var(--blanco);
+}
+
+.searching{
+  padding: 2rem;
+  
+}
+
+.contain-filter{
+  background-color: var(--dark-gray);
+}
+
+.reset-app{
+  background-color: rgb(187, 20, 20);
+  width: 100%;
+  font-size: 3rem;
+  color: var(--blanco);
+  border: none;
+  padding: 1.5rem 0;
+  border-radius: .5rem;
+
+
+
+}
+.reset-app:hover{
+  cursor: pointer;
 }

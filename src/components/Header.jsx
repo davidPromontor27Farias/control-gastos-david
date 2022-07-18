@@ -14,6 +14,7 @@ export default function Header({setIsValiedPresupuesto, isValiedPresupuesto, pre
             setPresupuesto={setPresupuesto}
             spents={spents}
             setSpents={setSpents}
+            setIsValiedPresupuesto={setIsValiedPresupuesto}
 
           />
 
